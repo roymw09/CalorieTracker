@@ -81,9 +81,9 @@ public class HomeServlet extends HttpServlet {
 		int user_id = appDao.getUserId(username);
 		
 		ArrayList<FoodModel> foodList = foodDao.getCurrentFoodList(user_id);
-		int totalCalories = 0;
+		double totalCalories = 0;
 		for (FoodModel food : foodList) {
-			int cals = Integer.parseInt(food.getCalories());
+			double cals = Double.parseDouble(food.getCalories());
 			totalCalories += cals;
 		}
 		request.getSession().setAttribute("totalDailyCalories", totalCalories);
