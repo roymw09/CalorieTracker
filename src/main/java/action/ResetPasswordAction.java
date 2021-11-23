@@ -55,8 +55,6 @@ public class ResetPasswordAction implements Action {
             throws ServletException, IOException {
     	resetCode = request.getSession().getAttribute("resetCode").toString();
     	String userEnteredCode = request.getParameter("userEnteredResetCode");
-    	// TODO- DELETE
-    	System.out.println(resetCode + " " + userEnteredCode);
     	if (userEnteredCode.equals(resetCode)) {
     		loadChangePasswordPage(request, response);
     		request.getSession().setAttribute("resetCode", null);
@@ -74,8 +72,6 @@ public class ResetPasswordAction implements Action {
     	userEmail = request.getSession().getAttribute("email").toString();
     	// TODO - Add error message if password is invalid
     	if (passwordIsValid && newPassword.equals(confirmNewPassword)) {
-    		// TODO- DELETE
-    		System.out.println(userEmail);
     		applicationDao.updatePassword(userEmail, newPassword);
     		request.getSession().setAttribute("verificationMessage", message);
     		response.sendRedirect("login");
