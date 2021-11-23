@@ -13,8 +13,6 @@ public class ResetPasswordAction implements Action {
 	private String userEmail;
     private String resetCode;
 	
-	ApplicationDao applicationDao = new ApplicationDao();
-	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
@@ -65,6 +63,7 @@ public class ResetPasswordAction implements Action {
     
     private void changePassword(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException{
+    	ApplicationDao applicationDao = new ApplicationDao();
     	String message = "Password has been changed";
     	String newPassword = request.getParameter("newPassword");
     	String confirmNewPassword = request.getParameter("confirmNewPassword");

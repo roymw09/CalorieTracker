@@ -58,7 +58,6 @@ public class FoodDao {
 				foodModel.setServingSizeUnit(obj.get("servingSizeUnit").toString());
 			}
 			
-			
 			// Get calories and macronutrient information
 			JSONArray arr = (JSONArray) obj.get("foodNutrients");
 			for (int j = 0; j < arr.size(); j++) {

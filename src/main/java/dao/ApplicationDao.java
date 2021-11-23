@@ -62,6 +62,7 @@ public class ApplicationDao {
 	}
 	
 	public boolean checkIfAccountExists(User user) {
+		boolean accountExists = false;
 		try {
 			Connection connection = DBConnection.getConnectionToDatabase();
 			String emailEnteredByUser = user.getEmail();
@@ -79,14 +80,17 @@ public class ApplicationDao {
 			ResultSet usernameResultSet = usernameStmt.executeQuery();
 			
 			if (emailResultSet.next() || usernameResultSet.next()) {
-				return true;
+				accountExists = true;
+			} else {
+				accountExists = false;
 			}
+			connection.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return accountExists;
 	}
 	
 	public boolean verifyLogin(User user) {

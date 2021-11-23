@@ -11,11 +11,10 @@ import dao.ApplicationDao;
 import model.User;
 
 public class LoginAction implements Action {
-
-	ApplicationDao applicationDao = new ApplicationDao();
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ApplicationDao applicationDao = new ApplicationDao();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String errorMessage = "Invalid username / password";
