@@ -8,7 +8,7 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/CalorieTrackerTomcatServer"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/argon2-jvm-2.11.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/argon2-jvm-nolibs-2.11.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jna-5.8.0.jar"/>

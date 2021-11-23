@@ -16,7 +16,8 @@
 	    	<form class="form1" method="post">
 		      	<input class="un " type="password" align="center" name="newPassword" placeholder="Enter new password">
 		      	<input class="un " type="password" align="center" name="confirmNewPassword" placeholder="Confirm new password">
-		      	<input type="submit" class="submit" align="center" name="changePassword" value="Change Password">	
+		      	<input type="submit" class="submit" align="center" name="changePassword" value="Change Password">
+		      	<input type="hidden" align="center" name="email">
 			</form>      
 		</div>     
 	</body>

@@ -132,6 +132,7 @@ public class ApplicationDao {
 			stmt.setString(1, hashedPassword);
 			stmt.setString(2, email);
 			stmt.executeUpdate();
+			connection.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -139,8 +140,8 @@ public class ApplicationDao {
 		}
 	}
 	
-	public int getUserId(String username) {
-		int userId = -1;
+	public long getUserId(String username) {
+		long userId = -1;
 		try {
 			Connection connection = DBConnection.getConnectionToDatabase();
 			String sql = "SELECT ID FROM USERS "
@@ -151,8 +152,9 @@ public class ApplicationDao {
 			
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				userId = rs.getInt("id");
+				userId = rs.getLong("id");
 			}
+			connection.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

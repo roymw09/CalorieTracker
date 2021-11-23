@@ -9,13 +9,13 @@ import java.sql.Statement;
 
 public class DBConnection {
 	
-	private static final String dbUser = "root";
-    private static final String dbPassword = "password";
-    private static final String CONN_STRING = "jdbc:mysql://127.0.0.1:3306/users";
+	private static final String dbUser = "roymw09";
+    private static final String dbPassword = "O5WP6jqqBWXFLyPu";
+    private static final String CONN_STRING = "jdbc:postgresql://free-tier7.aws-eu-west-1.cockroachlabs.cloud:26257/rusty-frog-862.defaultdb";
 
     public static Connection getConnectionToDatabase() throws SQLException, ClassNotFoundException {
         Connection connection = null;
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        //Class.forName("com.mysql.cj.jdbc.Driver");
 		connection = DriverManager.getConnection(CONN_STRING, dbUser, dbPassword);
 		createTable(connection); // creates users table if it doesn't exist
         return connection;
