@@ -44,17 +44,14 @@ public class HomeServlet extends HttpServlet {
 	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException  {
 		if (request.getParameter("searchForFood") != null){
-			ActionFactory actionFactory = new ActionFactory();
 			actionFactory.getAction("SearchFood").execute(request, response);
 			processGetRequest(request, response);
 		}
 		else if (request.getParameter("addToDailyList") != null) { 
-			ActionFactory actionFactory = new ActionFactory();
 			actionFactory.getAction("AddFood").execute(request, response);
 			processGetRequest(request, response);
 		}
 		else if (request.getParameter("deleteFromDailyList") != null) {
-			ActionFactory actionFactory = new ActionFactory();
 			actionFactory.getAction("DeleteFood").execute(request, response);
 			processGetRequest(request, response);
 		}
