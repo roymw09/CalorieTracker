@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jna-5.8.0.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.mail.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/database-credential.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

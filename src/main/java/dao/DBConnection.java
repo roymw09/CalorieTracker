@@ -7,11 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DBConnection {
+public class DBConnection implements DatabaseCredential {
 	
-	private static final String dbUser = "roymw09";
-    private static final String dbPassword = "O5WP6jqqBWXFLyPu";
-    private static final String CONN_STRING = "jdbc:postgresql://free-tier7.aws-eu-west-1.cockroachlabs.cloud:26257/rusty-frog-862.defaultdb";
+	private static final String dbUser = DatabaseCredential.dbUser;
+    private static final String dbPassword = DatabaseCredential.dbPassword;
+    private static final String CONN_STRING = DatabaseCredential.CONN_STRING;
 
     public static Connection getConnectionToDatabase() throws SQLException, ClassNotFoundException {
         Connection connection = null;
