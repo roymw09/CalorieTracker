@@ -20,8 +20,6 @@ public class HomeServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	FoodDao foodDao = new FoodDao();
-	ActionFactory actionFactory = new ActionFactory();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,6 +41,7 @@ public class HomeServlet extends HttpServlet {
 	
 	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException  {
+		ActionFactory actionFactory = new ActionFactory();
 		if (request.getParameter("searchForFood") != null){
 			actionFactory.getAction("SearchFood").execute(request, response);
 			processGetRequest(request, response);
@@ -60,6 +59,7 @@ public class HomeServlet extends HttpServlet {
 	private void displayDailyFoodList(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException  {
 		ApplicationDao appDao = new ApplicationDao();
+		FoodDao foodDao = new FoodDao();
 		String username = request.getSession().getAttribute("loggedInUser").toString();
 		long user_id = appDao.getUserId(username);
 		
