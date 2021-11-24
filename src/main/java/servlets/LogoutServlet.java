@@ -6,8 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
-import action.LogoutAction;
+import factory.ActionFactory;
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
@@ -19,7 +18,7 @@ public class LogoutServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Action logoutAction = new LogoutAction();
-		logoutAction.execute(request, response);
+		ActionFactory actionFactory = new ActionFactory();
+		actionFactory.getAction("Logout").execute(request, response);
 	}
 }

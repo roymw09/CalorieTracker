@@ -89,7 +89,6 @@ public class FoodDao {
 			String sql = "INSERT INTO user_food (user_id, foodName, calories, protein, fat, carbs) VALUES(?, ?, ?, ?, ?, ?);";
 			Connection connection = DBConnection.getConnectionToDatabase();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			System.out.println(user_id);
 			stmt.setLong(1, user_id);
 			stmt.setString(2, foodModel.getFoodName());
 			stmt.setString(3, foodModel.getCalories());

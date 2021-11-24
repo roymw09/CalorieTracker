@@ -39,7 +39,6 @@ public class ApplicationDao {
 	public boolean checkRegistrationEmail(String email) {
 		String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 		if (!email.matches(emailRegex)) {
-			System.out.println("ERROR: 3");
 			return false;
 		}
 		return true;
@@ -47,7 +46,6 @@ public class ApplicationDao {
 	
 	public boolean checkRegistrationUsername(String username) {
 		if (username.length() < 4 || username == null) {
-			System.out.println("ERROR: 1");
 			return false;
 		}
 		return true;
@@ -55,7 +53,6 @@ public class ApplicationDao {
 	
 	public boolean checkRegistrationPassword(String password) {
 		if (password.length() < 8 || password == null) {
-			System.out.println("ERROR: 2");
 			return false;
 		}
 		return true;

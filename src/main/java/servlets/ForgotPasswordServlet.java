@@ -7,8 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
-import action.ResetPasswordAction;
+import factory.ActionFactory;
 
 @WebServlet("/forgot")
 public class ForgotPasswordServlet extends HttpServlet {
@@ -27,7 +26,7 @@ public class ForgotPasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Action resetPasswordAction = new ResetPasswordAction();
-        resetPasswordAction.execute(request, response);
+    	ActionFactory actionFactory = new ActionFactory();
+		actionFactory.getAction("ResetPassword").execute(request, response);
     }
 }

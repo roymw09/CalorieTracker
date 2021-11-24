@@ -20,7 +20,6 @@ public class LoginAction implements Action {
 		String errorMessage = "Invalid username / password";
 		User user = new User(null, username, password);
 		if (applicationDao.verifyLogin(user)) {
-			System.out.println("LOGIN SUCCESS");
 			request.getSession().setAttribute("loggedInUser", username);
 			response.sendRedirect("home");
 		} else {

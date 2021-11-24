@@ -7,8 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
-import action.RegisterAction;
+import factory.ActionFactory;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
@@ -27,7 +26,7 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
-		Action registerAction = new RegisterAction();
-		registerAction.execute(request, response);
+		ActionFactory actionFactory = new ActionFactory();
+		actionFactory.getAction("Register").execute(request, response);
 	}
 }

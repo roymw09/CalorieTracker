@@ -7,8 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
-import action.LoginAction;
+import factory.ActionFactory;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -27,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException {
-		Action loginAction = new LoginAction();
-		loginAction.execute(request, response);
+		ActionFactory actionFactory = new ActionFactory();
+		actionFactory.getAction("Login").execute(request, response);
 	}
 }

@@ -8,12 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import action.Action;
-import action.AddFoodAction;
-import action.DeleteFoodAction;
-import action.SearchFoodAction;
 import dao.ApplicationDao;
 import dao.FoodDao;
+import factory.ActionFactory;
 import model.FoodModel;
 
 @WebServlet("/home")
@@ -24,7 +21,7 @@ public class HomeServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 	FoodDao foodDao = new FoodDao();
-	Action action;
+	ActionFactory actionFactory = new ActionFactory();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,18 +44,18 @@ public class HomeServlet extends HttpServlet {
 	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 			IOException  {
 		if (request.getParameter("searchForFood") != null){
-			action = new SearchFoodAction();
-			action.execute(request, response);
+			ActionFactory actionFactory = new ActionFactory();
+			actionFactory.getAction("SearchFood").execute(request, response);
 			processGetRequest(request, response);
 		}
 		else if (request.getParameter("addToDailyList") != null) { 
-			action = new AddFoodAction();
-			action.execute(request, response);
+			ActionFactory actionFactory = new ActionFactory();
+			actionFactory.getAction("AddFood").execute(request, response);
 			processGetRequest(request, response);
 		}
 		else if (request.getParameter("deleteFromDailyList") != null) {
-			action = new DeleteFoodAction();
-			action.execute(request, response);
+			ActionFactory actionFactory = new ActionFactory();
+			actionFactory.getAction("DeleteFood").execute(request, response);
 			processGetRequest(request, response);
 		}
 	}
